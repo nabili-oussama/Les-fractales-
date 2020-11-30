@@ -1,1 +1,37 @@
-hnhgh
+import matplotlib.pyplot as plt
+import random 
+
+M = [[0.5,0.0]]
+x0=0.5
+y0=0.0
+for i in range(1,30001):
+    p = random.uniform(0,1)
+    if p<=0.1:
+        x = x0*0.05
+        y = y0*0.6
+    elif 0.1<p<=0.2:
+        x = x0*0.05
+        y = (y0*(-0.5))+1
+        
+    elif 0.2<p<=0.4:
+        x = x0*0.46 - y0*0.32
+        y = x0*0.39 + y0*0.38 +0.6
+        
+    elif 0.4<p<=0.6:
+        x = x0*0.47 - y0*0.15
+        y = x0*0.17 + y0*0.42 +1.1
+        
+    elif 0.6<p<=0.8:
+        x = x0*0.43 + y0*0.28
+        y = x0*(-0.25) + y0*0.45 +1
+        
+    elif 0.8<p<=1:
+        x = x0*0.42 + y0*0.26
+        y = x0*(-0.35) + y0*0.31 +0.7
+    M=M+[[x,y]]
+    x0=x
+    y0=y
+Mx=[i[0] for i in M]
+My=[i[1] for i in M]
+plt.plot(Mx, My, 'b.')
+plt.show()
